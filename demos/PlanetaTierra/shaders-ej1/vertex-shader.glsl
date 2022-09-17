@@ -41,13 +41,7 @@
             
             // **************** EDITAR A PARTIR DE AQUI *******************************
             
-            //position+=normal*(1.0+sin(uv.x*18.0*PI+time*20.0))*0.03; 
-            //position = vec3(uv.x, -1.0, uv.y);
-            position.x = uv.x*2.0-1.0;
-            position.y = -0.5;
-            position.z = uv.y*2.0-1.0;
-
-
+            position = vec3(uv.s*2.0-1.0, -0.5, uv.t*2.0-1.0);
 
             // ************************************************************************
 
