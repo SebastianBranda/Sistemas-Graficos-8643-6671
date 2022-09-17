@@ -40,8 +40,11 @@
            vec4 textureColor = texture2D(uSampler, vec2(uv.s, uv.t));         
             
             // **************** EDITAR A PARTIR DE AQUI *******************************
-            
-            //position+=normal*(1.0+sin(uv.x*18.0*PI+time*20.0))*0.03; 
+
+            position += textureColor.z > max(textureColor.x, textureColor.y)?
+                normal*(sin(uv.s * 50.0 + uv.t * 30.0 - time*20.0))*0.02
+                +normal*(sin(uv.t * 100.0 + time*30.0))*0.01:
+                normal*0.04;
 
             // ************************************************************************
 
@@ -50,6 +53,6 @@
             gl_Position = uPMatrix*uVMatrix*worldPos;
 
             vWorldPosition=worldPos.xyz;              
-            vNormal=normalize(uNMatrix * aNormal);
+            // vNormal=normalize(uNMatrix * aNormal);
             vUv=uv;	
         }
